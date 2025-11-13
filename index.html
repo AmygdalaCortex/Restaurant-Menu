@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🍽️ Menu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header>
+      <h1 id="menu-title">&#127860;Menu&#127860;</h1>
+      <button id="lang-toggle">🌐
+        <span id="lang-label">EN</span>
+      </button>
+
+  </header>
+
+  <section id="cards">
+    <div class="card">
+      <img src="./img/burger.png" alt="Burger" />
+      <div class="text">
+        <h2>🍔 Burger</h2>
+        <p>Juicy, flavorful, and stacked with fresh toppings — the ultimate comfort bite.</p>
+        <span class="price">1,200 DZD</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="./img/chiken.png" alt="Fried Chicken" />
+      <div class="text">
+        <h2>🍗 Fried Chicken</h2>
+        <p>Crispy on the outside, tender on the inside — golden perfection in every piece.</p>
+        <span class="price">1,300 DZD</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="./img/fries.png" alt="French Fries" />
+      <div class="text">
+        <h2>🍟 French Fries</h2>
+        <p>Crispy, golden fries seasoned to perfection — the perfect sidekick.</p>
+        <span class="price">450 DZD</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="./img/mac.png" alt="Mac and Cheese" />
+      <div class="text">
+        <h2>🧀 Mac & Cheese</h2>
+        <p>Creamy, cheesy goodness that melts in your mouth with every spoonful.</p>
+        <span class="price">900 DZD</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="./img/pasta.png" alt="Pasta" />
+      <div class="text">
+        <h2>🍝 Pasta</h2>
+        <p>Rich, saucy, and full of flavor — a true taste of Italy in every bite.</p>
+        <span class="price">1,500 DZD</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="./img/pizza.png" alt="Pizza" />
+      <div class="text">
+        <h2>🍕 Pizza</h2>
+        <p>Hot, cheesy, and loaded with toppings — happiness on a slice.</p>
+        <span class="price">1,800 DZD</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="./img/rice.png" alt="Rice" />
+      <div class="text">
+        <h2>🍚 Rice</h2>
+        <p>Fluffy, perfectly cooked grains — a simple staple made with love.</p>
+        <span class="price">600 DZD</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="./img/tacos.webp" alt="Tacos" />
+      <div class="text">
+        <h2>🌮 Tacos</h2>
+        <p>Soft or crunchy shells filled with bold flavors and fresh ingredients.</p>
+        <span class="price">1,100 DZD</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="./img/salad.png" alt="Salad" />
+      <div class="text">
+        <h2>🥗 Salad</h2>
+        <p>Fresh, crisp, and colorful — healthy never tasted this good.</p>
+        <span class="price">650 DZD</span>
+      </div>
+    </div>
+
+<!-- ----------JavaScript----------->  
+
+    <script>
+const btn = document.getElementById("lang-toggle");
+const label = document.getElementById("lang-label");
+const title = document.getElementById("menu-title");
+const cards = document.querySelectorAll(".card");
+
+let lang = "en"; // start in English
+
+btn.addEventListener("click", () => {
+  label.style.opacity = 0;
+
+  setTimeout(() => {
+    if (lang === "en") {
+      // Switch to Arabic
+      title.textContent = "قائمة الطعام";
+      document.body.setAttribute("dir", "rtl");
+      label.textContent = "ع";
+
+      const arabicData = [
+        ["🍔 برغر", "لحم طري ولذيذ مع إضافات طازجة — الطعم المفضل للجميع."],
+        ["🍗 دجاج مقلي", "مقرمش من الخارج وطري من الداخل — لذة ذهبية في كل قطعة."],
+        ["🍟 بطاطا مقلية", "مقرمشة وذهبية ومتبلة بإتقان — الرفيق المثالي لأي وجبة."],
+        ["🧀 مكرونة بالجبن", "كريمية ولذيذة تذوب في الفم مع كل ملعقة."],
+        ["🍝 باستا", "غنية بالنكهة وصلصتها رائعة — مذاق إيطالي أصيل في كل لقمة."],
+        ["🍕 بيتزا", "ساخنة ومليئة بالجبن والإضافات — السعادة في كل شريحة."],
+        ["🍚 أرز", "حبات طرية مطهية بإتقان — طبق بسيط مصنوع بحب."],
+        ["🌮 تاكوس", "خبز طري أو مقرمش محشو بنكهات جريئة ومكونات طازجة."],
+        ["🥗 سلطة", "طازجة ومقرمشة وملونة — الصحة لم تكن أبدًا بهذه اللذة."]
+      ];
+
+      cards.forEach((card, i) => {
+        card.querySelector("h2").textContent = arabicData[i][0];
+        card.querySelector("p").textContent = arabicData[i][1];
+      });
+
+      lang = "ar";
+    } else {
+      // Switch to English
+      title.textContent = "Our Menu";
+      document.body.setAttribute("dir", "ltr");
+      label.textContent = "EN";
+
+      const englishData = [
+        ["🍔 Burger", "Juicy, flavorful, and stacked with fresh toppings — the ultimate comfort bite."],
+        ["🍗 Fried Chicken", "Crispy on the outside, tender on the inside — golden perfection in every piece."],
+        ["🍟 French Fries", "Crispy, golden fries seasoned to perfection — the perfect sidekick."],
+        ["🧀 Mac & Cheese", "Creamy, cheesy goodness that melts in your mouth with every spoonful."],
+        ["🍝 Pasta", "Rich, saucy, and full of flavor — a true taste of Italy in every bite."],
+        ["🍕 Pizza", "Hot, cheesy, and loaded with toppings — happiness on a slice."],
+        ["🍚 Rice", "Fluffy, perfectly cooked grains — a simple staple made with love."],
+        ["🌮 Tacos", "Soft or crunchy shells filled with bold flavors and fresh ingredients."],
+        ["🥗 Salad", "Fresh, crisp, and colorful — healthy never tasted this good."]
+      ];
+
+      cards.forEach((card, i) => {
+        card.querySelector("h2").textContent = englishData[i][0];
+        card.querySelector("p").textContent = englishData[i][1];
+      });
+
+      lang = "en";
+    }
+
+    label.style.opacity = 1;
+  }, 200);
+});
+</script>
+
+
+
+</body>
+</html>
